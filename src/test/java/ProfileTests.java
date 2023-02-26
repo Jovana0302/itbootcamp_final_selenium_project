@@ -1,13 +1,14 @@
 import jdk.jfr.Description;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class ProfileTests extends BasicTest {
 
-    @Test
-    @Description("Visit profile page")
-    public void tc1_visitProfilePage() throws InterruptedException {
+    @Test(priority=1)
+    @Description("TC1 Visit profile page")
+    public void visitProfilePage() throws InterruptedException {
         navPage.getLoginButton()
                 .click();
         loginPage.getEmailInput().sendKeys(
@@ -16,7 +17,7 @@ public class ProfileTests extends BasicTest {
                 "12345");
         loginPage.getLoginButton()
                 .click();
-        Thread.sleep(500);
+        navPage.waitForHomePage();
         driver.get(baseUrl + "/profile");
         Assert.assertTrue(driver.getCurrentUrl().contains("/profile"),
                 "Not on profile page");
@@ -28,9 +29,9 @@ public class ProfileTests extends BasicTest {
                 .click();
     }
 
-    @Test
-    @Description("Check input types")
-    public void tc2_checkInputTypes() throws InterruptedException {
+    @Test(priority=2)
+    @Description("TC2 Check input types")
+    public void checkInputTypes() throws InterruptedException {
         navPage.getLoginButton()
                 .click();
         loginPage.getEmailInput().sendKeys(
@@ -70,9 +71,9 @@ public class ProfileTests extends BasicTest {
                 .click();
     }
 
-    @Test
-    @Description("Edit profile")
-    public void tc3_editProfile() throws InterruptedException {
+    @Test(priority=3)
+    @Description("TC3 Edit profile")
+    public void editProfile() throws InterruptedException {
         navPage.getLoginButton()
                 .click();
         loginPage.getEmailInput().sendKeys(

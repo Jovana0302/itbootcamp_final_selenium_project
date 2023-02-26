@@ -4,9 +4,9 @@ import org.testng.annotations.Test;
 
 public class LoginTests extends BasicTest {
 
-    @Test
-    @Description("Visit login page")
-    public void tc1_visitLoginPage() {
+    @Test(priority=1)
+    @Description("TC1 Visit login page")
+    public void visitLoginPage() {
         navPage.getLanguageButton().click();
         navPage.getEnglishLanguageButton().click();
         navPage.getLoginButton().click();
@@ -14,9 +14,9 @@ public class LoginTests extends BasicTest {
                 "Not on login page");
     }
 
-    @Test
-    @Description("Check input types")
-    public void tc2_checkInputTypes() {
+    @Test(priority=2)
+    @Description("TC2 Check input types")
+    public void checkInputTypes() {
         navPage.getLoginButton().click();
         Assert.assertEquals(loginPage
                         .getEmailInput().getAttribute("type"),
@@ -28,9 +28,9 @@ public class LoginTests extends BasicTest {
                 "Wrong input type");
     }
 
-    @Test
-    @Description("Display error when user does not exist")
-    public void tc3_displayErrorWhenUserDoesNotExist() {
+    @Test(priority=3)
+    @Description("TC3 Display error when user does not exist")
+    public void displayErrorWhenUserDoesNotExist() {
         navPage.getLoginButton().click();
         loginPage.getEmailInput().sendKeys(
                 "non-existing-user@gmal.com");
@@ -47,9 +47,9 @@ public class LoginTests extends BasicTest {
                 "Not on login page");
     }
 
-    @Test
-    @Description("Display error when password is wrong")
-    public void tc4_displayErrorForWrongPassword() {
+    @Test(priority=4)
+    @Description("TC4 Display error when password is wrong")
+    public void displayErrorForWrongPassword() {
         navPage.getLoginButton().click();
         loginPage.getEmailInput().sendKeys(
                 "admin@admin.com");
@@ -65,23 +65,23 @@ public class LoginTests extends BasicTest {
                 "Not on login page");
     }
 
-    @Test
-    @Description("Login")
-    public void tc5_login() throws InterruptedException {
+    @Test(priority=5)
+    @Description("TC5 Login")
+    public void login() {
         navPage.getLoginButton().click();
         loginPage.getEmailInput().sendKeys(
                 "admin@admin.com");
         loginPage.getPasswordInput().sendKeys(
                 "12345");
         loginPage.getLoginButton().click();
-        Thread.sleep(500);
+        navPage.waitForHomePage();
         Assert.assertTrue(driver.getCurrentUrl().contains("/home"),
                 "Not on home page");
     }
 
-    @Test
-    @Description("Logout")
-    public void tc6_logout() {
+    @Test(priority=6)
+    @Description("TC6 Logout")
+    public void logout() {
 //        this method waits for the logout button to be visible
 //        and returns the element
         navPage.getLogoutButton()

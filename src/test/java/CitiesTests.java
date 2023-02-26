@@ -5,9 +5,9 @@ import org.testng.annotations.Test;
 
 public class CitiesTests extends BasicTest {
 
-    @Test
-    @Description("Visit admin cities page and list cities")
-    public void tc1_visitAdminCitiesPageAndListCities() {
+    @Test(priority=1)
+    @Description("TC1 Visit admin cities page and list cities")
+    public void visitAdminCitiesPageAndListCities() {
         navPage.getLoginButton().click();
         loginPage.getEmailInput()
                 .sendKeys("admin@admin.com");
@@ -23,9 +23,9 @@ public class CitiesTests extends BasicTest {
                 "Not on admin cities page");
     }
 
-    @Test
-    @Description("Check input types for create/edit new city")
-    public void tc2_checkInputTypesForCreateEditNewCity() {
+    @Test(priority=2)
+    @Description("TC2 Check input types for create/edit new city")
+    public void checkInputTypesForCreateEditNewCity() {
         navPage.getAdminButton()
                 .click();
         navPage.getCitiesLink()
@@ -39,9 +39,9 @@ public class CitiesTests extends BasicTest {
         citiesPage.getCancelButton().click();
     }
 
-    @Test
-    @Description("Create new city")
-    public void tc3_createNewCity() {
+    @Test(priority=3)
+    @Description("TC3 Create new city")
+    public void createNewCity() {
         navPage.getAdminButton()
                 .click();
         navPage.getCitiesLink()
@@ -59,9 +59,9 @@ public class CitiesTests extends BasicTest {
                 "Wrong message");
     }
 
-    @Test
-    @Description("Edit city")
-    public void tc4_editCity() {
+    @Test(priority=4)
+    @Description("TC4 Edit city")
+    public void editCity() {
         navPage.getAdminButton()
                 .click();
         navPage.getCitiesLink()
@@ -86,9 +86,9 @@ public class CitiesTests extends BasicTest {
                 "Wrong message");
     }
 
-    @Test
-    @Description("Search city")
-    public void tc5_searchCity() {
+    @Test(priority=5)
+    @Description("TC5 Search city")
+    public void searchCity() {
         navPage.getAdminButton()
                 .click();
         navPage.getCitiesLink()
@@ -102,9 +102,9 @@ public class CitiesTests extends BasicTest {
                 "Wrong city");
     }
 
-    @Test
-    @Description("Delete city")
-    public void tc6_deleteCity() {
+    @Test(priority=6)
+    @Description("TC6 Delete city")
+    public void deleteCity() {
         navPage.getAdminButton()
                 .click();
         navPage.getCitiesLink()

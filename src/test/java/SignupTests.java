@@ -4,17 +4,17 @@ import org.testng.annotations.Test;
 
 public class SignupTests extends BasicTest {
 
-    @Test
-    @Description("Visit signup page")
-    public void tc1_visitSignupPage() {
+    @Test(priority=1)
+    @Description("TC1 Visit signup page")
+    public void visitSignupPage() {
         navPage.getSignupButton().click();
         Assert.assertTrue(driver.getCurrentUrl().contains("/signup"),
                 "Not on signup page");
     }
 
-    @Test
-    @Description("Check input types")
-    public void tc2_checkInputTypes() {
+    @Test(priority=2)
+    @Description("TC2 Check input types")
+    public void checkInputTypes() {
         navPage.getSignupButton().click();
         Assert.assertEquals(signupPage
                         .getEmailInput().getAttribute("type"),
@@ -30,9 +30,9 @@ public class SignupTests extends BasicTest {
                 "Wrong input type");
     }
 
-    @Test
-    @Description("Display error when user already exists")
-    public void tc3_displayErrorWhenUserAlreadyExists() {
+    @Test(priority=3)
+    @Description("TC3 Display error when user already exists")
+    public void displayErrorWhenUserAlreadyExists() {
         navPage.getSignupButton().click();
         Assert.assertTrue(driver.getCurrentUrl()
                         .contains("/signup"),
@@ -55,9 +55,9 @@ public class SignupTests extends BasicTest {
                 "Not on signup page");
     }
 
-    @Test
-    @Description("Signup")
-    public void tc4_signup() {
+    @Test(priority=4)
+    @Description("TC4 Signup")
+    public void signup() {
         navPage.getSignupButton().click();
         signupPage.getNameInput()
                 .sendKeys("Jovana Cvetanovic");
