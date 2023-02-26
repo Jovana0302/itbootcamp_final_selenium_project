@@ -77,4 +77,8 @@ public class NavPage extends BasicPage {
         return driver.findElement(By.tagName("h1"));
     }
 
+    public void waitForHomePage(){
+        wait.until(ExpectedConditions.urlContains("/home"));
+    }
+
 }
