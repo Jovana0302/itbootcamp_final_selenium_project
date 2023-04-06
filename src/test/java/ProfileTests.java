@@ -1,6 +1,5 @@
 import jdk.jfr.Description;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -102,7 +101,6 @@ public class ProfileTests extends BasicTest {
         profilePage.getCountryInput().sendKeys(Keys.BACK_SPACE);
         profilePage.getCountryInput().sendKeys(
                 "Spain");
-        profilePage.getCityInput().sendKeys(Keys.ENTER);
         profilePage.getUrlTwitterInput().sendKeys(Keys.CONTROL + "a");
         profilePage.getUrlTwitterInput().sendKeys(Keys.BACK_SPACE);
         profilePage.getUrlTwitterInput().sendKeys(
